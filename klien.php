@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (isset($_SESSION['login'])) { 
-echo "<h1>Selamat Datang ". $_SESSION['login'] ."</h1>";
-} else {
-header('location:loginwarn.php');
-}
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -51,7 +43,6 @@ header('location:loginwarn.php');
 body {
 	background-color: #D8FFD7;
 	color: #000;
-	text-align: center;
 }
 </style>
 <!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
@@ -69,35 +60,50 @@ body {
     <hr width="100%" size="10" noshade="noshade">
   </nav>
 </header>
-<section>	
-  <table width="100%" border="0" align="right">
-    <tr>
-      <td width="94%" align="center">Beranda <span style="font-style: italic; font-weight: bold;">|</span> <a href="akun_klien.php">Akun Klien</a> <span style="font-style: italic; font-weight: bold;">|</span> <a href="akun_user.php">Akun User</a> <span style="font-weight: bold">|</span> <a href="daftar_tempat_makan.php">Tempat Makan</a> | <a href="testimoni.php">Testimoni</a> | <a href="setting.php">Setting</a></td>
-    </tr>
-  </table>
+<section>
   <table width="100%" border="0" align="left">
     <tr style="text-align: left">
-      <td width="75%" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Notifikasi</td>
+      <td width="75%" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Klien Log in</td>
     </tr>
-    <tr>
-      <td bgcolor="#A2FF9F" class="body" style="font-style: normal; color: #000000;">&nbsp;</td>
-    </tr>
+      <tr bgcolor="#A2FF9F">
+    <th width="75%" height="100%" align="center" valign="top" scope="col">
+    <?php		
+				//kode php ini kita gunakan untuk menampilkan pesan eror
+				if (!empty($_GET['error'])) {
+					if ($_GET['error'] == 1) {
+						echo '<h3>Username dan Password belum diisi!</h3>';
+					} else if ($_GET['error'] == 2) {
+						echo '<h3>Username belum diisi!</h3>';
+					} else if ($_GET['error'] == 3) {
+						echo '<h3>Password belum diisi!</h3>';
+					} else if ($_GET['error'] == 4) {
+						echo '<h3>Username dan Password tidak terdaftar!</h3>';
+					}
+				}
+			?>
+       <form action="actionloginklien.php" method="POST">
+				<table border="0" cellpadding="0" cellspacing="0">
+				
+					<tr>
+						<th>Username</th>
+						<td><input type="text"  class="login-inp" name="username" /></td>
+					</tr>
+					<tr>
+						<th>Password</th>
+						<td><input type="password" class="login-inp" name="password" /></td>
+					</tr>
+					<tr>
+						<th></th>
+						<td><input type="Submit" value='Login' /></td>
+					</tr>
+					
+				</table>
+      </form>
+
+    </p></th>
+  </tr>
   </table>
 </section>
-<footer class="footer">
-  <form action="" method="post" name="input">
-  <input type="submit" name="button" id="button" value="Log out" />
-  </form>
-<?php
-if(isset($_POST['button'])){
-session_start();
-unset ($_SESSION);
-session_destroy();
-echo "<h1>Anda sudah berhasil LOGOUT</h1>";
-header('location:admin.php');
-}
-?>
-</footer>
 <table width="100%" border="0" align="right">
     
 </table>

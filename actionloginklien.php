@@ -27,9 +27,8 @@ $result = mysql_query($sql, $conn);
 $num=mysql_num_rows($result);
 
 if ($num == 1) {
-	$_SESSION['login'] = $user;
     //kalau username dan password sudah terdaftar di database
-    header('location:notifikasi.php');
+    header('location:home.php');
 } else {
 	echo '<h3>Username dan Password tidak terdaftar!</h3>';
     //kalau username ataupun password tidak terdaftar di database

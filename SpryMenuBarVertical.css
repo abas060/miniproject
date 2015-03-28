@@ -37,7 +37,7 @@ ul.MenuBarVertical li
 	text-align: left;
 	cursor: pointer;
 	width: 243px;
-	background-color: #CCCCCC;
+	background-color: #A2FF9F;
 	font-family: "MS Serif", "New York", serif;
 }
 /* Submenus should appear slightly overlapping to the right (95%) and up (-5%) with a higher z-index, but they are initially off the left side of the screen (-1000em) */

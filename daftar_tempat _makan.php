@@ -3,6 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>makanapaya.com</title>
+<link href="SpryMenuBarVertical.css" rel="stylesheet" type="text/css" />
+<script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
+<link href="SpryAssets/SpryMenuBarVertical.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 .header {
 }
@@ -69,22 +72,58 @@ body {
 <section>	
   <table width="100%" border="0" align="right">
     <tr>
-      <td width="65%"><a href="index.php">Beranda</a> <span style="font-style: italic; font-weight: bold;">|</span> Tentang Kami <span style="font-style: italic; font-weight: bold;">|</span> <a href="daftar_tempat _makan.php">DaftarTempat Makan</a> <span style="font-weight: bold">|</span> <a href="kontak.php">Kontak</a></td>
+      <td width="65%"><a href="index.php">Beranda</a> <span style="font-style: italic; font-weight: bold;">|</span><a href="tentang_kami.php"> Tentang Kami</a> <span style="font-style: italic; font-weight: bold;">|</span> DaftarTempat Makan <span style="font-weight: bold">|</span> <a href="kontak.php">Kontak</a></td>
       <td width="40%" align="right"><input name="textfield2" type="text" id="textfield2" value="search">
       <input type="button" name="button3" id="button3" value="Search"></td>
     </tr>
   </table>
   <table width="100%" border="0" align="left">
     <tr style="text-align: left">
-      <td width="75%" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Tentang Kami</td>
+      <td width="17%" bgcolor="#006600" class="footer"><span class="body"><span class="footer">Cari Berdasarkan Kategori</span></span></td>
+      <td width="75%" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Daftar Tempat Makan</td>
     </tr>
     <tr>
+      <td width="17%" bgcolor="#A2FF9F" class="footer" style="text-align: left; color: #000;">
+       <ul id="MenuBar1" class="MenuBarVertical">
+        <li><a class="MenuBarItemSubmenu" href="#">Harga</a>
+          <ul>
+            <li><a href="#">Harga 1</a></li>
+            <li><a href="#">Harga 2</a></li>
+            <li><a href="#">Harga 3</a></li>
+          </ul>
+        </li>
+          <li><a href="#" class="MenuBarItemSubmenu">Lokasi</a>
+            <ul>
+              <li><a href="#">Lokasi 1</a></li>
+              <li><a href="#">Lokasi 2</a></li>
+            </ul>
+        </li>
+        <li><a class="MenuBarItemSubmenu" href="#">Jenis Makanan</a>
+          <ul>
+            <li><a href="#">Jenis Makanan  1</a>            </li>
+            <li><a href="#">Jenis Makanan 2</a></li>
+            <li><a href="#">Jenis Makanan 3</a></li>
+          </ul>
+        </li>
+        <li><a href="#" class="MenuBarItemSubmenu">Jenis Tempat Makanan</a>
+          <ul>
+            <li><a href="#">Jenis Tempat Makanan 1</a></li>
+            <li><a href="#">Jenis Tempat Makanan 2</a></li>
+          </ul>
+        </li>
+        <li><a href="#" class="MenuBarItemSubmenu">Rating</a>
+          <ul>
+            <li><a href="#">Rating 1</a></li>
+            <li><a href="#">Rating 2</a></li>
+          </ul>
+        </li>
+      </ul></td>
       <td bgcolor="#A2FF9F" class="body" style="font-style: normal; color: #000000;">&nbsp;</td>
     </tr>
   </table>
 </section>
-<table width="100%" border="0" align="right">
-    
-</table>
+<script type="text/javascript">
+var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
+</script>
 </body>
 </html>

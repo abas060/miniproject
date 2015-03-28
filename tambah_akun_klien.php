@@ -64,7 +64,7 @@ body {
 <header class="header">
   <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-style: normal; font-weight: bold;">&nbsp;</p>
   <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-style: normal; font-weight: bold; font-size: xx-large; text-align: center;">Makan Apa Ya ?</p>
-  <p style="font-weight: lighter; font-style: italic; text-align: center;">Portal Informasi Pencarian Tempat Makan di Surabaya
+  <p class="header" style="font-weight: lighter; font-style: italic; text-align: center;">Portal Informasi Pencarian Tempat Makan di Surabaya
   <nav>
     <hr width="100%" size="10" noshade="noshade">
   </nav>
@@ -72,20 +72,63 @@ body {
 <section>	
   <table width="100%" border="0" align="right">
     <tr>
-      <td width="94%" align="center">Beranda <span style="font-style: italic; font-weight: bold;">|</span> <a href="akun_klien.php">Akun Klien</a> <span style="font-style: italic; font-weight: bold;">|</span> <a href="akun_user.php">Akun User</a> <span style="font-weight: bold">|</span> <a href="daftar_tempat_makan.php">Tempat Makan</a> | <a href="testimoni.php">Testimoni</a> | <a href="setting.php">Setting</a></td>
+      <td width="94%" align="center"><a href="notifikasi.php">Beranda</a> <span style="font-style: italic; font-weight: bold;">|</span> <a href="akun_klien.php">Akun Klien</a> <span style="font-style: italic; font-weight: bold;">|</span> <a href="akun_user.php">Akun User</a> <span style="font-weight: bold">|</span> <a href="daftar_tempat_makan.php">Tempat Makan</a> | <a href="testimoni.php">Testimoni</a> | <a href="setting.php">Setting</a></td>
     </tr>
   </table>
   <table width="100%" border="0" align="left">
     <tr style="text-align: left">
-      <td width="75%" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Notifikasi</td>
+      <td width="75%" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Akun Klien</td>
     </tr>
     <tr>
-      <td bgcolor="#A2FF9F" class="body" style="font-style: normal; color: #000000;">&nbsp;</td>
+      <td bgcolor="#A2FF9F" class="body" style="font-style: normal; color: #000000;"><p>
+       <FORM ACTION="" METHOD="POST" NAME="input">
+        <label for="textfield">Nama Klien :</label>
+          <input name="textfield" type="text" required="required" id="textfield" />
+        </p>
+        <p>
+          <label for="textfield2">Alamat Kien:</label>
+          <input name="textfield2" type="text" required="required" id="textfield2" />
+        </p>
+        <p>
+          <label for="textfield3">No Telepon :</label>
+          <input name="textfield3" type="text" required="required" id="textfield3" />
+        </p>
+        <p>
+          <label for="textfield4">e-mail Klien:</label>
+          <input name="textfield4" type="text" required="required" id="textfield4" />
+        </p>
+        <p>
+       
+<input type="submit" name="submit2" id="submit2" value="Save" />
+        </FORM>
+            <?php
+if (isset($_POST['submit2'])) {
+	include('koneksi.php');
+ $nama = addslashes (strip_tags ($_POST['textfield'])); 
+ $almt = addslashes (strip_tags ($_POST['textfield2'])); 
+ $no_telp = addslashes (strip_tags ($_POST['textfield3'])); 
+ $email = addslashes (strip_tags ($_POST['textfield4'])); 
+ 
+ //insert ke tabel 
+ $query ="INSERT INTO `akun_klien`(`nama_klien`, `alamat_klien`, `no_telp_klien`, `email_klien`) VALUES ('".$nama."','".$almt."','".$no_telp."','".$email."')"; 
+ $sql = mysql_query ($query); 
+ if ($sql) { 
+ echo "<h2><font color=blue>Klien telah berhasil 
+ditambahkan</font></h2>"; 
+ } else { 
+ echo "<h2><font color=red>Klien gagal 
+ditambahkan</font></h2>"; 
+ } }
+?>    
+        </p>
+   </p></td>
     </tr>
+    
+
   </table>
 </section>
 <footer class="footer">
-  <form action="" method="post" name="input">
+<form action="" method="post" name="input">
   <input type="submit" name="button" id="button" value="Log out" />
   </form>
 <?php
@@ -97,6 +140,8 @@ echo "<h1>Anda sudah berhasil LOGOUT</h1>";
 header('location:admin.php');
 }
 ?>
+
+
 </footer>
 <table width="100%" border="0" align="right">
     

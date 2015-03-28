@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (isset($_SESSION['login'])) { 
-echo "<h1>Selamat Datang ". $_SESSION['login'] ."</h1>";
-} else {
-header('location:loginwarn.php');
-}
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -72,12 +64,12 @@ body {
 <section>	
   <table width="100%" border="0" align="right">
     <tr>
-      <td width="94%" align="center">Beranda <span style="font-style: italic; font-weight: bold;">|</span> <a href="akun_klien.php">Akun Klien</a> <span style="font-style: italic; font-weight: bold;">|</span> <a href="akun_user.php">Akun User</a> <span style="font-weight: bold">|</span> <a href="daftar_tempat_makan.php">Tempat Makan</a> | <a href="testimoni.php">Testimoni</a> | <a href="setting.php">Setting</a></td>
+      <td width="94%" align="center">Menu <strong>|</strong> <a href="setting_klien.php">Setting</a></td>
     </tr>
   </table>
   <table width="100%" border="0" align="left">
     <tr style="text-align: left">
-      <td width="75%" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Notifikasi</td>
+      <td width="75%" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Menu</td>
     </tr>
     <tr>
       <td bgcolor="#A2FF9F" class="body" style="font-style: normal; color: #000000;">&nbsp;</td>
@@ -85,18 +77,9 @@ body {
   </table>
 </section>
 <footer class="footer">
-  <form action="" method="post" name="input">
-  <input type="submit" name="button" id="button" value="Log out" />
+<form action="klien.php">
+  <input name="button" type="submit" id="button" formaction="klien.php" value="Log out" />
   </form>
-<?php
-if(isset($_POST['button'])){
-session_start();
-unset ($_SESSION);
-session_destroy();
-echo "<h1>Anda sudah berhasil LOGOUT</h1>";
-header('location:admin.php');
-}
-?>
 </footer>
 <table width="100%" border="0" align="right">
     

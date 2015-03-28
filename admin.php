@@ -3,22 +3,70 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>makanapaya.com</title>
-<link href="style.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.header {
+}
+.header {
+	background-color: #A2FF9F;
+	text-align: left;
+	font-style: normal;
+	font-weight: bolder;
+}
+.navigasi {
+	background-color: #060;
+	font-style: normal;
+	text-align: right;
+	color: #FFF;
+	font-weight: bolder;
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+}
+.footer {
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+	font-style: normal;
+	font-weight: bolder;
+	color: #FFF;
+	text-align: center;
+}
+.div {
+	text-align: left;
+}
+.body {
+	color: #BFFFBF;
+	text-align: left;
+	font-style: normal;
+	font-weight: bolder;
+}
+</style>
+<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+body {
+	background-color: #D8FFD7;
+	color: #000;
+}
+</style>
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
+<script src="jQueryAssets/jquery-1.8.3.min.js" type="text/javascript"></script><script>var __adobewebfontsappname__="dreamweaver"</script>
+<script src="http://use.edgefonts.net/chunk:n4:default;aladin:n4:default.js" type="text/javascript"></script>
+
 </head>
 
 <body>
-
-<div id="header">
-  <p>makanapaya.com</p>
-</div>
-<table width="1352" height="481" cellpadding="0" cellspacing="1">
-  <tr>
-    <th width="1234" height="26" align="center" bgcolor="#CCCCCC" scope="col"><blockquote>
-      <h1>Admin Login</h1>
-    </blockquote></th>
-  </tr>
-  <tr>
-    <th height="443" align="center" valign="top" bgcolor="#EAE6D5" scope="col">
+<header class="header">
+  <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-style: normal; font-weight: bold;">&nbsp;</p>
+  <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-style: normal; font-weight: bold; font-size: xx-large; text-align: center;">Makan Apa Ya ?</p>
+  <p style="font-weight: lighter; font-style: italic; text-align: center;">Portal Informasi Pencarian Tempat Makan di Surabaya
+  <nav>
+    <hr width="100%" size="10" noshade="noshade">
+  </nav>
+</header>
+<section>
+  <table width="100%" border="0" align="left">
+    <tr style="text-align: left">
+      <td width="75%" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Admin Log in</td>
+    </tr>
+      <tr bgcolor="#A2FF9F">
+    <th width="75%" height="100%" align="center" valign="top" scope="col">
     <?php		
 				//kode php ini kita gunakan untuk menampilkan pesan eror
 				if (!empty($_GET['error'])) {
@@ -54,8 +102,10 @@
 
     </p></th>
   </tr>
+  </table>
+</section>
+<table width="100%" border="0" align="right">
+    
 </table>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
 </body>
 </html>

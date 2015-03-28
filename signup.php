@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (isset($_SESSION['login'])) { 
-echo "<h1>Selamat Datang ". $_SESSION['login'] ."</h1>";
-} else {
-header('location:loginwarn.php');
-}
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -67,6 +59,7 @@ body {
   <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-style: normal; font-weight: bold;">&nbsp;</p>
   <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-style: normal; font-weight: bold; font-size: xx-large; text-align: center;">Makan Apa Ya ?</p>
   <p style="font-weight: lighter; font-style: italic; text-align: center;">Portal Informasi Pencarian Tempat Makan di Surabaya
+  </p>
   <nav>
     <hr width="100%" size="10" noshade="noshade">
   </nav>
@@ -80,18 +73,18 @@ body {
 <section>	
   <table width="100%" border="0" align="right">
     <tr>
-      <td width="65%"><a href="index.php">Beranda</a> <span style="font-style: italic; font-weight: bold;">|</span><a href="tentang_kami.php"> Tentang Kami</a> <span style="font-style: italic; font-weight: bold;">|</span> DaftarTempat Makan <span style="font-weight: bold">|</span> <a href="kontak.php">Kontak</a></td>
+      <td width="65%">Beranda <span style="font-style: italic; font-weight: bold;">|</span><a href="tentang_kami.php"> Tentang Kami</a> <span style="font-style: italic; font-weight: bold;">|</span> <a href="daftar_tempat _makan.php">DaftarTempat Makan</a> <span style="font-weight: bold">|</span> <a href="kontak.php">Kontak</a></td>
       <td width="40%" align="right"><input name="textfield2" type="text" id="textfield2" value="search">
       <input type="button" name="button3" id="button3" value="Search"></td>
     </tr>
   </table>
   <table width="100%" border="0" align="left">
     <tr style="text-align: left">
-      <td width="17%" bgcolor="#006600" class="footer"><span class="body"><span class="footer">Cari Berdasarkan Kategori</span></span></td>
-      <td width="75%" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Daftar Tempat Makan</td>
+      <td width="20%" bgcolor="#006600" class="footer"><span class="body"><span class="footer">Cari Berdasarkan Kategori</span></span></td>
+      <td colspan="2" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Sign up</td>
     </tr>
-    <tr>
-      <td width="17%" bgcolor="#A2FF9F" class="footer" style="text-align: left; color: #000;">
+    <tr valign="top">
+      <td width="20%" bgcolor="#A2FF9F" class="footer" style="text-align: left; color: #000;">
        <ul id="MenuBar1" class="MenuBarVertical">
         <li><a class="MenuBarItemSubmenu" href="#">Harga</a>
           <ul>
@@ -126,7 +119,55 @@ body {
           </ul>
         </li>
       </ul></td>
-      <td bgcolor="#A2FF9F" class="body" style="font-style: normal; color: #000000;">&nbsp;</td>
+      <td width="12%" bgcolor="#A2FF9F" class="body" style="font-style: normal; color: #000000;"><p>Nama</p>
+      <p>Tempat Tanggal Lahir</p>
+      <p>e-mail</p>
+      <p>Username</p>
+      <p>Password</p>
+      <p>&nbsp;</p></td>
+      <td width="68%" bgcolor="#A2FF9F" class="body" style="font-style: normal; color: #000000;"><form action="" method="post" name="input" id="input">
+        <label for="textfield2">:</label>
+        <input name="nama" type="text" required="required" id="textfield2" />
+        </p>
+        <p>
+          <label for="nama">:</label>
+          <input name="ttl" type="text" required="required" id="ttl" />
+        </p>
+        <p>
+          <label for="uname"> :</label>
+          <input name="email" type="text" required="required" id="textfield4" />
+        </p>
+        <p>
+          <label for="textfield5">:</label>
+          <input name="uname" type="text" required="required" id="textfield5" />
+        </p>
+        <p>
+          <label for="textfield6">:</label>
+          <input name="password2" type="password" required="required" id="password2" />
+        </p>
+        <p>
+          <input type="submit" name="submit2" id="submit2" value="Save" />
+        </p>
+      </form>
+                  <?php
+if (isset($_POST['submit2'])) {
+	include('koneksi.php');
+ $nama = addslashes (strip_tags ($_POST['nama'])); 
+ $ttl = addslashes (strip_tags ($_POST['ttl'])); 
+ $email = addslashes (strip_tags ($_POST['email'])); 
+ $uname = addslashes (strip_tags ($_POST['uname'])); 
+ $password = addslashes (strip_tags ($_POST['password2'])); 
+ 
+ //insert ke tabel 
+ $query ="INSERT INTO `pengunjung`(`nama`, `ttl`, `email`, `username`, `password`) VALUES ('".$nama."','".$ttl."','".$email."','".$uname."','".$password."')"; 
+ $sql = mysql_query ($query); 
+ if ($sql) { 
+ echo "<h2><font color=blue>Sign up Berhasil</font></h2>"; 
+ } else { 
+ echo "<h2><font color=red>Gagal Sign up</font></h2>"; 
+ } }
+?>    
+      </td>
     </tr>
   </table>
 </section>

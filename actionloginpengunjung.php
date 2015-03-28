@@ -4,7 +4,7 @@ include('koneksi.php');
 
 session_start();
 
-$user = $_POST['username'];
+$user = $_POST['textfield'];
 $pass = $_POST['password'];
 
 if (empty($user) && empty($pass)) {
@@ -27,9 +27,8 @@ $result = mysql_query($sql, $conn);
 $num=mysql_num_rows($result);
 
 if ($num == 1) {
-	$_SESSION['login'] = $user;
     //kalau username dan password sudah terdaftar di database
-    header('location:notifikasi.php');
+    header('location:index.php');
 } else {
 	echo '<h3>Username dan Password tidak terdaftar!</h3>';
     //kalau username ataupun password tidak terdaftar di database

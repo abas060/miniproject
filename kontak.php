@@ -3,51 +3,88 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>makanapaya.com</title>
-<link href="style.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.header {
+}
+.header {
+	background-color: #A2FF9F;
+	text-align: left;
+	font-style: normal;
+	font-weight: bolder;
+}
+.navigasi {
+	background-color: #060;
+	font-style: normal;
+	text-align: right;
+	color: #FFF;
+	font-weight: bolder;
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+}
+.footer {
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+	font-style: normal;
+	font-weight: bolder;
+	color: #FFF;
+	text-align: center;
+}
+.div {
+	text-align: left;
+}
+.body {
+	color: #BFFFBF;
+	text-align: left;
+	font-style: normal;
+	font-weight: bolder;
+}
+</style>
+<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+body {
+	background-color: #D8FFD7;
+	color: #000;
+}
+</style>
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
+<script src="jQueryAssets/jquery-1.8.3.min.js" type="text/javascript"></script><script>var __adobewebfontsappname__="dreamweaver"</script>
+<script src="http://use.edgefonts.net/chunk:n4:default;aladin:n4:default.js" type="text/javascript"></script>
+
 </head>
 
 <body>
-
-<div id="header">
-  <p>makanapaya.com</p>
-  <p>&nbsp;</p>
-</div>
-<table width="1362" cellpadding="1" cellspacing="1">
-  <tr>
-    <td width="819" height="25" bgcolor="#F48D5B">&nbsp;</td>
-    <td width="534" bgcolor="#F48D5B"><input type="text" name="textfield2" id="textfield2" />
-    <input type="password" name="textfield3" id="textfield3" />
-    <input type="submit" name="button2" id="button2" value="Login" />
-    <input type="submit" name="button3" id="button3" value="Sign Up" /></td>
-  </tr>
+<header class="header">
+  <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-style: normal; font-weight: bold;">&nbsp;</p>
+  <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-style: normal; font-weight: bold; font-size: xx-large; text-align: center;">Makna Apa Ya ?</p>
+  <p style="font-weight: lighter; font-style: italic; text-align: center;">Portal Informasi Pencarian Tempat Makan di Surabaya
+  <nav>
+    <hr width="100%" size="10" noshade="noshade">
+  </nav>
+</header>
+<nav class="navigasi">
+      <input name="textfield" type="text" id="textfield" value="username">
+      <input name="password" type="password" id="password" value="password">
+      <input type="button" name="button" id="button" value="Sign in">
+      <input type="button" name="button2" id="button2" value="Sign up">
+</nav>
+<section>	
+  <table width="100%" border="0" align="right">
+    <tr>
+      <td width="65%"><a href="index.php">Beranda</a> <span style="font-style: italic; font-weight: bold;">|</span><a href="tentang_kami.php"> Tentang Kami</a> <span style="font-style: italic; font-weight: bold;">|</span> <a href="daftar_tempat _makan.php">DaftarTempat Makan</a> <span style="font-weight: bold">|</span> Kontak</td>
+      <td width="40%" align="right"><input name="textfield2" type="text" id="textfield2" value="search">
+      <input type="button" name="button3" id="button3" value="Search"></td>
+    </tr>
+  </table>
+  <table width="100%" border="0" align="left">
+    <tr style="text-align: left">
+      <td width="75%" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Kontak</td>
+    </tr>
+    <tr>
+      <td bgcolor="#A2FF9F" class="body" style="font-style: normal; color: #000000;">&nbsp;</td>
+    </tr>
+  </table>
+</section>
+<table width="100%" border="0" align="right">
+    
 </table>
-<table width="1358" cellpadding="1" cellspacing="1">
-  <tr>
-    <td width="58" bgcolor="#F48D5B"><a href="index.php">Beranda</a></td>
-    <td width="90" bgcolor="#F48D5B"><a href="tentang_kami.php">Tentang Kami</a></td>
-    <td width="130" bgcolor="#F48D5B"><a href="daftar_tempat_makan.php">Daftar Tempat Makan</a></td>
-    <td width="101" bgcolor="#F48D5B"><a href="kontak.php">Kontak</a></td>
-    <td width="637" bgcolor="#F48D5B">&nbsp;</td>
-    <td width="321" bgcolor="#F48D5B"><form id="form1" name="form1" method="post" action="">
-      <label for="textfield"></label>
-      <input type="text" name="textfield" id="textfield" />
-      <input type="submit" name="button" id="button" value="Search" />
-    </form></td>
-  </tr>
-</table>
-<table width="1352" height="681" cellpadding="0" cellspacing="1">
-  <tr>
-    <th width="1234" height="26" align="left" bgcolor="#CCCCCC" scope="col"><blockquote>
-      <h1>Kontak</h1>
-    </blockquote></th>
-  </tr>
-  <tr>
-    <th height="570" align="left" valign="top" bgcolor="#EAE6D5" scope="col">&nbsp;</th>
-  </tr>
-</table>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
 </body>
-<div id="navigasi"></div>
-
 </html>
