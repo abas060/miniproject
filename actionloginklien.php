@@ -9,16 +9,16 @@ $pass = $_POST['password'];
 
 if (empty($user) && empty($pass)) {
     //kalau username dan password kosong
-    header('location:admin.php?error=1');
+    header('location:klien.php?error=1');
     break;
 } else if (empty($user)) {
     //kalau username saja yang kosong
-    header('location:admin.php?error=2');
+    header('location:klien.php?error=2');
     break;
 } else if (empty($pass)) {
     //kalau password saja yang kosong
     //redirect ke halaman index
-    header('location:admin.php?error=3');
+    header('location:klien.php?error=3');
     break;
 }
 

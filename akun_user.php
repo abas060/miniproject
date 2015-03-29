@@ -80,32 +80,32 @@ body {
       <td width="75%" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Akun User</td>
     </tr>
     <tr>
-      <td bgcolor="#A2FF9F" class="body" style="font-style: normal; color: #000000;"><p>
-        <?php
+      <td bgcolor="#A2FF9F" class="body" style="font-style: normal; color: #000000;">
+       <form action="" method="post">
+        <input name="submit" type="submit" value="Add" />
+</form>
+        
+<?php
+if (isset($_POST['submit'])) {
+ header('location:tambah_akun_user.php');}
+?>
+      <?php
 
 include('koneksi.php');
-$query = "SELECT * FROM akun_klien";
+$query = "SELECT * FROM pengunjung";
 $sql = mysql_query ($query);
 while ($hasil = mysql_fetch_array ($sql)){
- $nama_klien = stripslashes ($hasil['nama_klien']);
- $alamat_klien = stripslashes ($hasil['alamat_klien']);
- $no_hp_klien = stripslashes ($hasil['no_telp_klien']);
- $email_klien = stripslashes ($hasil['email_klien']);
- $img_klien= stripslashes ($hasil['img_klien']);
+ $id = stripslashes ($hasil['id_pengunjung']);
+ $nama = stripslashes ($hasil['nama']);
  //tampilkan berita
- echo '<img src: "'.$img_klien.'">';
- echo "Nama        : ".$nama_klien."<br>";
- echo " Alamat  : ".$alamat_klien."<br>";
- echo " No hp   : ".$no_hp_klien."<br>";
- echo " Email    : ".$email_klien."<br><br>";
+ echo "<h2><a href='view_akun_user.php?id_user=$id'>$nama</a> <a href='hapus_akun_user.php?id_user=$id'>X</a> </h2>";
 }
-?>
-      &nbsp;</p></td>
+?>      &nbsp;</td>
     </tr>
   </table>
 </section>
 <footer class="footer">
-<form action="" method="post" name="input">
+<form action="admin.php" method="post" name="input">
   <input type="submit" name="button" id="button" value="Log out" />
   </form>
 <?php
@@ -113,8 +113,6 @@ if(isset($_POST['button'])){
 session_start();
 unset ($_SESSION);
 session_destroy();
-echo "<h1>Anda sudah berhasil LOGOUT</h1>";
-header('location:admin.php');
 }
 ?>
 </footer>

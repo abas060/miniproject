@@ -1,49 +1,144 @@
+<?php
+session_start();
+if (isset($_SESSION['login'])) { 
+echo "<h1>Selamat Datang ". $_SESSION['login'] ."</h1>";
+} else {
+header('location:loginwarn.php');
+}
+?>
+<?php
+if (isset($_POST['submit2'])) {
+	include('koneksi.php');
+ $nama = addslashes (strip_tags ($_POST['textfield'])); 
+ $almt = addslashes (strip_tags ($_POST['textfield2'])); 
+ $no_telp = addslashes (strip_tags ($_POST['textfield3'])); 
+ $email = addslashes (strip_tags ($_POST['textfield4']));
+ $desc = addslashes (strip_tags ($_POST['textarea'])); 
+ 
+ //insert ke tabel 
+ $query ="INSERT INTO `tempat_makan`(`nama`, `alamat`, `no_telp`, `email`, `desc`) VALUES ('".$nama."','".$almt."','".$no_telp."','".$email."','".$desc."')"; 
+ $sql = mysql_query ($query); 
+ if ($sql) { 
+ echo "<h2><font color=blue>Klien telah berhasil 
+ditambahkan</font></h2>"; 
+ } else { 
+ echo "<h2><font color=red>Klien gagal 
+ditambahkan</font></h2>"; 
+ } 
+ }
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>makanapaya.com</title>
-<link href="style.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.header {
+}
+.header {
+	background-color: #A2FF9F;
+	text-align: left;
+	font-style: normal;
+	font-weight: bolder;
+}
+.navigasi {
+	background-color: #060;
+	font-style: normal;
+	text-align: right;
+	color: #FFF;
+	font-weight: bolder;
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+}
+.footer {
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+	font-style: normal;
+	font-weight: bolder;
+	color: #FFF;
+	text-align: center;
+}
+.div {
+	text-align: left;
+}
+.body {
+	color: #BFFFBF;
+	text-align: left;
+	font-style: normal;
+	font-weight: bolder;
+}
+</style>
+<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+body {
+	background-color: #D8FFD7;
+	color: #000;
+	text-align: center;
+}
+</style>
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
+<script src="jQueryAssets/jquery-1.8.3.min.js" type="text/javascript"></script><script>var __adobewebfontsappname__="dreamweaver"</script>
+<script src="http://use.edgefonts.net/chunk:n4:default;aladin:n4:default.js" type="text/javascript"></script>
+
 </head>
 
 <body>
-
-<div id="header">
-  <p>makanapaya.com</p>
-  <p>&nbsp;</p>
-</div>
-<table width="1358" cellpadding="1" cellspacing="1">
-<tr>
-  <td width="133" align="center" bgcolor="#F48D5B"><table width="1358" cellpadding="1" cellspacing="1">
+<header class="header">
+  <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-style: normal; font-weight: bold;">&nbsp;</p>
+  <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-style: normal; font-weight: bold; font-size: xx-large; text-align: center;">Makan Apa Ya ?</p>
+  <p style="font-weight: lighter; font-style: italic; text-align: center;">Portal Informasi Pencarian Tempat Makan di Surabaya
+  <nav>
+    <hr width="100%" size="10" noshade="noshade">
+  </nav>
+</header>
+<section>	
+  <table width="100%" border="0" align="right">
     <tr>
-      <td width="401" height="18" align="right" bgcolor="#F48D5B"><a href="beranda.php">Beranda</a></td>
-      <td width="88" align="center" bgcolor="#F48D5B"><a href="akun_klien.php">Akun Klien</a></td>
-      <td width="84" align="center" bgcolor="#F48D5B"><a href="akun_user.php">Akun User</a></td>
-      <td width="108" align="center" bgcolor="#F48D5B"><a href="tempat_makan.php">Tempat Makan</a></td>
-      <td width="79" align="center" bgcolor="#F48D5B"><a href="testimoni.php">Testimoni</a></td>
-      <td width="577" bgcolor="#F48D5B"><form id="form1" name="form1" method="post" action="">
-        <a href="setting.php">Setting </a>
-      </form></td>
+      <td width="94%" align="center"><a href="notifikasi.php">Beranda</a> <span style="font-style: italic; font-weight: bold;">|</span> <a href="akun_klien.php">Akun Klien </a><span style="font-style: italic; font-weight: bold;">|</span> <a href="akun_user.php">Akun User</a> <span style="font-weight: bold">|</span> Tempat Makan | <a href="testimoni.php">Testimoni</a> | <a href="setting.php">Setting</a></td>
     </tr>
-  </table></td>
-</tr>
-</table>
-<table width="1118" cellpadding="1" cellspacing="1">
-  <tr>
-    <td width="1110" height="629"><table width="1354" height="613" cellpadding="0" cellspacing="1">
-      <tr>
-        <th width="1366" height="26" align="left" bgcolor="#CCCCCC" scope="col"><blockquote>
-          <h1> Notifikasi</h1>
-          </blockquote></th>
-        </tr>
-      <tr>
-        <th height="570" align="left" valign="top" bgcolor="#EAE6D5" scope="col">&nbsp;</th>
-        </tr>
-    </table></td>
-  </tr>
-</table>
-<p>&nbsp;</p>
-</body>
-<div id="navigasi"></div>
+  </table>
+  <table width="100%" border="0" align="left">
+    <tr style="text-align: left">
+      <td width="75%" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Tempat Makan</td>
+    </tr>
+    <tr>
+      <td bgcolor="#A2FF9F" class="body" style="font-style: normal; color: #000000;">
+       <form action="" method="post">
+        <input name="submit" type="submit" value="Add" />
+</form>
+        
+<?php
+if (isset($_POST['submit'])) {
+ header('location:tambah_tempat_makan.php');}
+?>
+      <?php
 
+include('koneksi.php');
+$query = "SELECT * FROM tempat_makan";
+$sql = mysql_query ($query);
+while ($hasil = mysql_fetch_array ($sql)){
+ $id = stripslashes ($hasil['id_tempat_makan']);
+ $nama = stripslashes ($hasil['nama']);
+ //tampilkan berita
+ echo "<h2><a href='view_akun_user.php?id_user=$id'>$nama</a> <a href='hapus_tempat_makan.php?id_tempat_makan=$id'>X</a> </h2>";
+}
+?>      &nbsp;</td>
+    </tr>
+  </table>
+</section>
+<footer class="footer">
+<form action="admin.php" method="post" name="input">
+  <input type="submit" name="button" id="button" value="Log out" />
+  </form>
+<?php
+if(isset($_POST['button'])){
+session_start();
+unset ($_SESSION);
+session_destroy();
+}
+?>
+</footer>
+<table width="100%" border="0" align="right">
+    
+</table>
+</body>
 </html>

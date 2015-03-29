@@ -6,26 +6,6 @@ echo "<h1>Selamat Datang ". $_SESSION['login'] ."</h1>";
 header('location:loginwarn.php');
 }
 ?>
-          <?php
-if (isset($_POST['submit2'])) {
-	include('koneksi.php');
- $nama = addslashes (strip_tags ($_POST['textfield'])); 
- $almt = addslashes (strip_tags ($_POST['textfield2'])); 
- $no_telp = addslashes (strip_tags ($_POST['textfield3'])); 
- $email = addslashes (strip_tags ($_POST['textfield4'])); 
- 
- //insert ke tabel 
- $query ="INSERT INTO `akun_klien`(`nama_klien`, `alamat_klien`, `no_telp_klien`, `email_klien`) VALUES ('".$nama."','".$almt."','".$no_telp."','".$email."')"; 
- $sql = mysql_query ($query); 
- if ($sql) { 
- echo "<h2><font color=blue>Klien telah berhasil 
-ditambahkan</font></h2>"; 
- } else { 
- echo "<h2><font color=red>Klien gagal 
-ditambahkan</font></h2>"; 
- } 
- }
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -92,61 +72,50 @@ body {
 <section>	
   <table width="100%" border="0" align="right">
     <tr>
-      <td width="94%" align="center"><a href="notifikasi.php">Beranda</a> <span style="font-style: italic; font-weight: bold;">|</span> Akun Klien <span style="font-style: italic; font-weight: bold;">|</span> <a href="akun_user.php">Akun User</a> <span style="font-weight: bold">|</span> <a href="tempat_makan.php">Tempat Makan</a> | <a href="testimoni.php">Testimoni</a> | <a href="setting.php">Setting</a></td>
+      <td width="94%" align="center"><a href="notifikasi.php">Beranda</a> <span style="font-style: italic; font-weight: bold;">|</span> <a href="akun_klien.php">Akun Klien </a><span style="font-style: italic; font-weight: bold;">|</span> Akun User <span style="font-weight: bold">|</span> <a href="daftar_tempat_makan.php">Tempat Makan</a> | <a href="testimoni.php">Testimoni</a> | <a href="setting.php">Setting</a></td>
     </tr>
   </table>
   <table width="100%" border="0" align="left">
     <tr style="text-align: left">
-      <td width="75%" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Akun Klien</td>
+      <td width="75%" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Akun User</td>
     </tr>
     <tr>
-      <td bgcolor="#A2FF9F" class="body" style="font-style: normal; color: #000000;"><p>
-      <FORM ACTION="" METHOD="POST" NAME="input">
-<input name="submit" type="submit" value="Add" />
-</FORM>
-        
-<?php
-if (isset($_POST['submit'])) {
- header('location:tambah_akun_klien.php');}
-?>
-      </p>
-        
+      <td bgcolor="#A2FF9F" class="body" style="font-style: normal; color: #000000;">
       <?php
-
 include('koneksi.php');
-$query = "SELECT * FROM akun_klien";
+$id = $_GET['id_user'];
+$query = "SELECT * FROM pengunjung WHERE
+id_pengunjung=$id";
 $sql = mysql_query ($query);
-while ($hasil = mysql_fetch_array ($sql)){
-$id = $hasil['id_klien'];	
- $nama_klien = stripslashes ($hasil['nama_klien']);
- $alamat_klien = stripslashes ($hasil['alamat_klien']);
- $no_hp_klien = stripslashes ($hasil['no_telp_klien']);
- $email_klien = stripslashes ($hasil['email_klien']);
- $img_klien= stripslashes ($hasil['img_klien']);
- echo "<h2><a href='hapus_akun_klien.php?id_klien=$id'>X</a> </h2>";
+while ($hasil = mysql_fetch_array ($sql)){	
+ $nama = stripslashes ($hasil['nama']);
+ $ttl = stripslashes ($hasil['ttl']);
+ $email = stripslashes ($hasil['email']);
+ $username = stripslashes ($hasil['username']);
+ $password= stripslashes ($hasil['password']);
  //tampilkan berita
- echo "Nama        : ".$nama_klien."<br>";
- echo " Alamat  : ".$alamat_klien."<br>";
- echo " No hp   : ".$no_hp_klien."<br>";
- echo " Email    : ".$email_klien."<br><br>";
+ echo "Nama        : ".$nama."<br>";
+ echo " TTL    : ".$ttl."<br>";
+ echo " email  : ".$email."<br>";
+ echo " username   : ".$username."<br>";
+ echo " password  : ".$password."<br>";
  
 
 }
 ?>
-
-      &nbsp;</p></td>
+      &nbsp;</td>
     </tr>
   </table>
 </section>
 <footer class="footer">
- <form action="admin.php" method="post" name="input">
+<form action="admin.php" method="post" name="input">
   <input type="submit" name="button" id="button" value="Log out" />
   </form>
 <?php
 if(isset($_POST['button'])){
+session_start();
 unset ($_SESSION);
 session_destroy();
-echo "<h1>Anda sudah berhasil LOGOUT</h1>";
 }
 ?>
 </footer>

@@ -7,7 +7,7 @@ $sql = mysql_query ($query);
 if ($sql) {
 header('location:akun_klien.php');
 } else {
-echo "<h2><font color=red>Berita gagal
+echo "<h2><font color=red>Akun Klien gagal
 dihapus</font></h2>";
 }
 
