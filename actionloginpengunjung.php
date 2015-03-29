@@ -22,7 +22,7 @@ if (empty($user) && empty($pass)) {
     break;
 }
 
-$sql="Select * from users where username='" . $user . "' and password='". $pass ."'";
+$sql="Select * from pengunjung where username='" . $user . "' and password='". $pass ."'";
 $result = mysql_query($sql, $conn);
 $num=mysql_num_rows($result);
 

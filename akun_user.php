@@ -77,18 +77,13 @@ body {
   </table>
   <table width="100%" border="0" align="left">
     <tr style="text-align: left">
-      <td width="75%" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Akun Klien</td>
+      <td width="75%" bgcolor="#006600" class="footer" style="font-style: normal; color: #FFF; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-weight: bolder;">Akun User</td>
     </tr>
     <tr>
       <td bgcolor="#A2FF9F" class="body" style="font-style: normal; color: #000000;"><p>
-        <input name="submit" type="submit" id="submit" formaction="tambah_akun_klien.php" value="Add" />
-      </p>
-      <p>
-      <?php
+        <?php
 
 include('koneksi.php');
-
-session_start();
 $query = "SELECT * FROM akun_klien";
 $sql = mysql_query ($query);
 while ($hasil = mysql_fetch_array ($sql)){

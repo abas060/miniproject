@@ -81,7 +81,7 @@ body {
     </tr>
     <tr>
       <td bgcolor="#A2FF9F" class="body" style="font-style: normal; color: #000000;"><p>
-       <FORM ACTION="" METHOD="POST" NAME="input">
+       <FORM ACTION="akun_klien.php" METHOD="POST" NAME="input">
         <label for="textfield">Nama Klien :</label>
           <input name="textfield" type="text" required="required" id="textfield" />
         </p>
@@ -101,25 +101,7 @@ body {
        
 <input type="submit" name="submit2" id="submit2" value="Save" />
         </FORM>
-            <?php
-if (isset($_POST['submit2'])) {
-	include('koneksi.php');
- $nama = addslashes (strip_tags ($_POST['textfield'])); 
- $almt = addslashes (strip_tags ($_POST['textfield2'])); 
- $no_telp = addslashes (strip_tags ($_POST['textfield3'])); 
- $email = addslashes (strip_tags ($_POST['textfield4'])); 
- 
- //insert ke tabel 
- $query ="INSERT INTO `akun_klien`(`nama_klien`, `alamat_klien`, `no_telp_klien`, `email_klien`) VALUES ('".$nama."','".$almt."','".$no_telp."','".$email."')"; 
- $sql = mysql_query ($query); 
- if ($sql) { 
- echo "<h2><font color=blue>Klien telah berhasil 
-ditambahkan</font></h2>"; 
- } else { 
- echo "<h2><font color=red>Klien gagal 
-ditambahkan</font></h2>"; 
- } }
-?>    
+              
         </p>
    </p></td>
     </tr>
@@ -128,7 +110,7 @@ ditambahkan</font></h2>";
   </table>
 </section>
 <footer class="footer">
-<form action="" method="post" name="input">
+<form action="admin.php" method="post" name="input">
   <input type="submit" name="button" id="button" value="Log out" />
   </form>
 <?php
@@ -137,7 +119,6 @@ session_start();
 unset ($_SESSION);
 session_destroy();
 echo "<h1>Anda sudah berhasil LOGOUT</h1>";
-header('location:admin.php');
 }
 ?>
 
